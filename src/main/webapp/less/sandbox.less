@@ -1,1 +1,47 @@
 /** Add less rules here for your application. */
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,600,700|Heebo:300,400,500,700,800|Work+Sans:400,500,600,700,800);
+
+
+
+@textColor:#081523;
+@lightColor:#d8dde3;
+@darkColor: #261735;
+@accentcolor:#ef4c32;
+@accentcolor2:#1fb7c0;
+@white:#fff;
+
+/*@gradient:*/
+
+@fontFamily:'Heebo',Arial, sans-serif;
+
+@fontsizeXS: .8em;
+@fontsizeS: .9em;
+@fontsizeM: 1em;
+@fontsizeL: 1.3em;
+@fontWeight:400;
+@lineHeight: 1.5;
+
+@standardPadding: 15px;
+
+@borderRadius: 2px;
+
+
+
+*{box-sizing:border-box;-mox-box-sizing:border-box;-webkit-box-sizing:border-box;}
+
+body{ color:@textColor; font-family:@fontFamily; font-size:fontsizeM; line-height:@lineHeight; font-weight: @fontWeight; letter-spacing:0.1px;background:@darkColor}
+
+
+.filter-toolbar {
+    display: flex; flex-wrap:wrap; justify-content:space-between;
+    background: rgba(0,0,0,.5); color:@white; 
+}
+.filter-toolbar>* {padding:@standardPadding;}
+
+.person-cell{background:@lightColor;}
+.person-cell *:before {
+   content: attr(title) ": ";}
+
+
+ #IdfSandbox ~ div > div, .workspace,.workspace > div:nth-child(2), .person-view {position:relative!important} 
