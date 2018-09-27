@@ -14,7 +14,14 @@
 @white:#fff;
 @extraButtonColor:#9ca9ca; 
 
-/*@gradient:*/
+.gradient{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#151f37+0,6545a5+100 */
+background: #151f37; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #151f37 0%, #6545a5 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #151f37 0%,#6545a5 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #151f37 0%,#6545a5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#151f37', endColorstr='#6545a5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
 
 @fontFamily:'Heebo',Arial, sans-serif;
 
@@ -39,14 +46,14 @@ body{ color:@textColor; font-family:@fontFamily; font-size:fontsizeM; line-heigh
 .filter-toolbar {
     display: flex; flex-wrap:wrap; justify-content:space-between;
     color:@white; 
-    padding:10px; 
+    padding:5px; 
 
 	input, select {
 	    border: none;
 	    padding: 5px;
 	    border-radius: 0;
 	    color: #fff;
-	    background: #27365a;
+	    background: rgba(0,0,0,.3);
 	    font-size: 16px;
 	    width: 100%;
 	    margin: 3px 0 0;
@@ -54,9 +61,10 @@ body{ color:@textColor; font-family:@fontFamily; font-size:fontsizeM; line-heigh
 	.race,.email{width:100%;}
 }
 
-button.apply-filters{.button; background-color:@accentColor2; margin-left:25px; }
-.filter-toolbar>* {padding:@standardPadding @standardPadding 0 @standardPadding;}
+button.apply-filters{.button; background-color:@accentColor2; margin-left:20px; margin-top:15px }
+.filter-toolbar>* {padding:@standardPadding @standardPadding 0 @standardPadding; width:100%}
 
+.suffix, .gender, .title{width:100%;}
 
 .person-cell
 { 
@@ -115,6 +123,9 @@ button.apply-filters{.button; background-color:@accentColor2; margin-left:25px; 
 	button.delete{background:#bbbec5;}
 }
  
+#IdfSandbox ~ div > div[aria-hidden='true'] {
+    height: 0!important;
+}
 
  #IdfSandbox ~ div > div, .workspace,.workspace > div:nth-child(2), .person-view 
  {
@@ -125,7 +136,7 @@ button.apply-filters{.button; background-color:@accentColor2; margin-left:25px; 
  { 
  	display: flex; 
  	flex-wrap: wrap; 
- 	justify-content:flex-start;
+ 	justify-content:space-between;
  }
 
 
@@ -158,22 +169,23 @@ button{.button;}
 	    position: absolute;
 	    top: 0;
 	    left: 0;
-	    width: 300px;
+	    width: 20%;
 	    bottom: 0;    
-	    background: @darkColor;
+	    .gradient;
 	}
 
 	& > section, & > footer {
-		padding-left:330px;
+		    padding-left: 22%;
+    padding-right: 2%;
 	}
 }
 
 
  .grid-view .cellListEvenItem, .grid-view .cellListOddItem
  {
- 	width:30%; 
+ 	width:24%; 
  	border-left:5px solid @accentColor2;
- 	margin:15px 30px 15px 0; 
+ 	margin:15px 0 15px 0; 
  	border-radius:5px;background:@white;
  	box-shadow: 0px 6px 20px -1px rgba(30, 45, 60, 0.13);
 }
@@ -191,10 +203,12 @@ button{.button;}
 	figure
 	{ 
 		display:flex;
-		align-items: center;background-color: #151f37;
+		align-items: center;		
+		border-radius: 0 6px 0 0;
     	padding: 15px;
     	margin: 0;
     	color: #fff;
+    	background:@darkColor;
     	justify-content: flex-start;
 
 		img
@@ -211,6 +225,9 @@ button{.button;}
 			    font-size: 12px;
 			    text-transform: uppercase;			    
 			    font-style: normal;
+			    display:block;
+			    font-weight:400;
+
 			}
 
 			& > * 
@@ -296,7 +313,7 @@ button.fetch {
 
 button.toggle-view-mode,button.reset
 {
-	background:@extraButtonColor; margin-right:15px;
+	background:@extraButtonColor; margin-left:15px; margin-bottom:15px;
 }
 
 .table-view
@@ -331,13 +348,13 @@ button.toggle-view-mode,button.reset
 	section
 	{
 		border-top: 1px solid #ddd;
-   	 	padding-top: 15px;
+   	 	padding-top: 15px; margin-top:0;
 	}
 
 	section, section>*
 	{
 		display:flex;
-		width:auto; align-items:center;
+		width:auto; align-items:flex-start;
 	}
 	section>*>*{padding-right:10px;}
 	.email 
@@ -381,4 +398,79 @@ button.toggle-view-mode,button.reset
 	{
 		width:25%;
 	}
+}
+header.controls {
+    padding-top: 15px;
+    display:flex;
+    justify-content:flex-end;
+}
+
+@media all and (max-width:1800px)
+{
+	.grid-view 
+	{
+		.cellListEvenItem,  .cellListOddItem 
+		{
+    		
+    	}
+    }
+}
+
+@media all and (max-width:1600px)
+{
+	.person-cell figure figcaption.caption>* 
+	{
+    	padding-right: 6px;
+    	font-weight: 600;
+    	font-size: 16px;
+	}
+	.grid-view 
+	{
+	.cellListEvenItem,  .cellListOddItem 
+	{
+    	width:32%;		
+    }}
+}
+
+@media all and (max-width:1400px)
+{
+	
+}
+
+@media all and (max-width:1300px)
+{
+	body{font-size:15px;}
+	.grid-view 
+	{.cellListEvenItem,  .cellListOddItem 
+	{
+    	width:49%;		
+    }	}
+
+
+    .table-view 
+    {
+    	.work {
+    		width: 100%;
+		}
+		aside,.education,.personal-info {
+    		width: 50%;
+		}
+	}	
+}
+@media all and (max-width:1023px)
+{
+	
+    .person-view>header {
+    display: none;}
+    .person-view>section, .person-view>footer {
+    padding-left: 2%;}
+}
+@media all and (max-width:767px)
+{
+	.grid-view 
+	{.cellListEvenItem,  .cellListOddItem 
+	{
+    	width:100%;		
+    }	}
+    button.toggle-view-mode{display:none;}
 }
